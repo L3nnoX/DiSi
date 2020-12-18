@@ -5,7 +5,7 @@ function kausal = kausalitaet(x)
 
 for k = 1:length(x)
     if x(k)~= 0 
-        if k < floor(3*length(x)/4) 
+        if k < floor(length(x)/2) 
             kausal = 0
             return
         else 

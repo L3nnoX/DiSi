@@ -7,9 +7,9 @@ a = coef;
 
 len = (length(x)+n);
 x_long = zeros(1, len);
-x_long(n+1:end) = x;
-y = zeros(1,len);
-reg = zeros(1,n+1); %alle Delayelemente auf 0
+x_long(n+1:end) = x;    %Eingangssignal mit Nullen aufgefüllt
+y = zeros(1,len);       %Initialisierung des Ausgangs
+reg = zeros(1,n+1);     %Register mit allen Delayelemente auf 0
 
 %Realisierung des FIR_Systems als "tapped-delay-line" (Direktform)
 for i = 1:len
