@@ -5,20 +5,20 @@ function y = FIR(x,ord,coef)
 n = ord;
 a = coef;
 
-len = (length(x)+n);
-x_long = zeros(1, len);
-x_long(n+1:end) = x;    %Eingangssignal mit Nullen aufgefüllt
-y = zeros(1,len);       %Initialisierung des Ausgangs
-reg = zeros(1,n+1);     %Register mit allen Delayelemente auf 0
+len = (length(x));
+
+y = zeros(1,len);           %Initialisierung des Ausgangs
+reg = zeros(1,n+1);         %Register mit allen Delayelementen auf 0
 
 %Realisierung des FIR_Systems als "tapped-delay-line" (Direktform)
-for i = 1:len
-    for k = 1:(n+1)
-        reg(k) = x_long(k);
-        y(k) = y(k) + a(k)*reg(k);
-    end    
+for k = 1:len
     
-    x_long = circshift(x_long, -(n+1));
+        reg(1) = x(k);          %1. Registerstelle füllen
+        
+        y(k) = sum(a .* reg);   %Registerwerte mit Koeffizienten multiplizieren und aufsummieren für aktuellen Ausgang
+  
+    
+    reg = circshift(reg, 1);    %Register um eine Stelle verschieben
 end
 
 
