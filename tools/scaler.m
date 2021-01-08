@@ -1,7 +1,7 @@
 function y = scaler(x, a)
-% scales the input vector "x" by "a"
+% skaliert den Eingnagsvektor "x" mit "a"
 
-y = a.*x;
+y = a.*x;       %elementweise Operation
 
 end
 

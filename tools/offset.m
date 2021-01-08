@@ -1,5 +1,5 @@
 function y = offset(x, o)
-% adds an offset "o" to the input vector "x"
+% addiert einen Offset "o" zum Eingangssignal "x"
 
 y = o + x;
 

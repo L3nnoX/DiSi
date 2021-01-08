@@ -1,11 +1,9 @@
 function kausal = kausalitaet(x)
-%KAUSALITAET Summary of this function goes here
-
-
+%prüft ein System auf Kausalität mit Bezug auf einem Dirac als Eingangssignal
 
 for k = 1:length(x)
-    if x(k)~= 0 
-        if k < floor(length(x)/2) 
+    if x(k)~= 0                     %1.Prüfbedingung =    x(k) =/= 0
+        if k < floor(length(x)/2)   %2.Prüfbedingung =    k ist vor dem einzelen Eingangsdiracimpuls
             kausal = 0
             return
         else 

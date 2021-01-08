@@ -19,6 +19,4 @@ y = zeros(1,len_y);
         end
     end
 
-%Probe
-%falt = conv(x,u)
 end
