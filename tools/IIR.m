@@ -21,7 +21,7 @@ reg2 = zeros(1,n+1); %alle Delayelemente auf 0
 %Vorwärtszweig (FIR-Teil)
 for k = 1:len
     
-        reg1(1) = x(k);     %Register füllen mit Eingangsvektor
+        reg1(1) = x(k);          %Register füllen mit Eingangsvektor
         
         u(k) = sum(b .* reg1);   %Registerwerte mit Koeffizienten multiplizieren und aufsummieren für aktuellen Ausgang
   
@@ -34,7 +34,7 @@ for m = 1:len
         if m ==1
             y(m) = u(m);
         else
-            reg2(1) = y(m-1);               %1. Registerstelle füllen mit rückgekoppeltem Ausgang
+            reg2(1) = y(m-1);     %1. Registerstelle füllen mit rückgekoppeltem Ausgang
             y(m) = u(m) - sum(reg2(1:length(c)-1) .* c(2:end));   %"Rückkoplung"
                     
         end
